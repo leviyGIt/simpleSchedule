@@ -8,11 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ScheduleVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        ScheduleService.loadSchedule { (result) in
+            switch result {
+            case .success(let data): print(data)
+            default: break
+            }
+        }
     }
 
 
